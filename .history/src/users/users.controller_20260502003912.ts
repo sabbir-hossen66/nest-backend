@@ -16,17 +16,7 @@ export class UsersController {
         return userService.getUserById(Number(id));
     }
 
-    @Post()
-    createUser() {
-        const userService = new UsersService();
-        const newUser = {
-            id: 4,
-            name: 'kala',
-            age: 30,
-            gender:'male',
-            isMarried: false
-    }
-         return userService.createUser(newUser);
-        //  return `User created successfully`;
+    @Post(){
+        
     }
 }

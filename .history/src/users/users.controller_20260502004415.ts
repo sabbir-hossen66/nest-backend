@@ -21,7 +21,7 @@ export class UsersController {
         const userService = new UsersService();
         const newUser = {
             id: 4,
-            name: 'kala',
+            name: 'new user',
             age: 30,
             gender:'male',
             isMarried: false

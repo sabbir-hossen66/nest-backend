@@ -17,16 +17,13 @@ export class UsersController {
     }
 
     @Post()
-    createUser() {
+    {
         const userService = new UsersService();
         const newUser = {
             id: 4,
-            name: 'kala',
-            age: 30,
-            gender:'male',
-            isMarried: false
+            name: 'new user',
+            age: 30,    
     }
-         return userService.createUser(newUser);
-        //  return `User created successfully`;
+        return userService.createUser(newUser);
     }
 }
