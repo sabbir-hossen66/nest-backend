@@ -1,12 +1,16 @@
-import { Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Post, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
     @Get()
-    getAllUsers() {
+    getAllUsers(@Query() query:any) {
         // Implementation for getting all users
         const userService = new UsersService();
+        if(query.name){
+            return userService.getAllUsers().filter(user => (user.name) === query.name);
+        }
+        console.log(query);
         return userService.getAllUsers();
     }
 

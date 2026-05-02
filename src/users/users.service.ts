@@ -12,6 +12,7 @@ export class UsersService {
     { id: 1, name: 'sabbir', age: 26, gender: 'male', isMarried: true },
     { id: 2, name: 'rahim', age: 36, gender: 'female', isMarried: false },
     { id: 3, name: 'sakib', age: 22, gender: 'male', isMarried: false },
+    { id: 4, name: 'sakib', age: 28, gender: 'male', isMarried: true },
   ];
 
   getAllUsers() {
