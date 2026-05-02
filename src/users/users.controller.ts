@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -10,11 +10,19 @@ export class UsersController {
         return userService.getAllUsers();
     }
 
-    @Get(':id')
-      getUserById(@Param('id') id: string) {
+    @Get(':id/')
+      getUserById(@Param('id') id: string, @Param('name') name: string) {
         const userService = new UsersService();
         return userService.getUserById(Number(id));
     }
+    @Get(':id/:name')
+getUserByIdAndName(
+  @Param('id') id: number,
+  @Param('name') name: string,
+) {
+     const userService = new UsersService();
+     return userService.getUserByIdAndName(Number(id), name);
+}
 
     @Post()
     createUser() {
@@ -29,4 +37,10 @@ export class UsersController {
          return userService.createUser(newUser);
         //  return `User created successfully`;
     }
+    @Delete(':id')
+    deleteUser(@Param('id') id: string) {
+        const userService = new UsersService();
+        return userService.deleteUser(Number(id));
+    }
+
 }

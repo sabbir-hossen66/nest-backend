@@ -21,6 +21,9 @@ export class UsersService {
   getUserById(id: number) {
     return this.users.find((user) => user.id === id);
   }
+  getUserByIdAndName(id: number, name: string) {
+    return this.users.find((user) => user.id === id && user.name === name);
+  }
 
   createUser(user: {
     id: number;
@@ -31,5 +34,13 @@ export class UsersService {
   }) {
     this.users.push(user);
     return user;
+  }
+  deleteUser(id: number) {
+    const index = this.users.findIndex((user) => user.id === id);
+    if (index !== -1) {
+      const deletedUser = this.users.splice(index, 1)[0];
+      return deletedUser;
+    }
+    return null; // User not found
   }
 }
